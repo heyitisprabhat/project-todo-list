@@ -19,9 +19,16 @@ function Todo({
   this.completed = false;
 }
 
+function Project({ name }) {
+  this.name = name;
+  this.id = crypto.randomUUID();
+  this.todos = [];
+}
+
+// const personal = new Project({ name: "Personal" });
+
 // const task = new Todo({
 //   title: "Buy milk",
 //   dueDate: "2026-10-28",
 //   priority: "high",
 // });
- 
