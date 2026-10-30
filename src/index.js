@@ -25,10 +25,13 @@ function Project({ name }) {
   this.todos = [];
 }
 
-// const personal = new Project({ name: "Personal" });
+const task = new Todo({
+  title: "Buy milk",
+  dueDate: "2026-10-28",
+  priority: "high",
+});
 
-// const task = new Todo({
-//   title: "Buy milk",
-//   dueDate: "2026-10-28",
-//   priority: "high",
-// });
+const personal = new Project({ name: "Personal" });
+
+personal.todos.push(task);
+console.log(personal);
