@@ -1,29 +1,7 @@
 import "./style.css";
 
-function Todo({
-  title,
-  description = "",
-  dueDate,
-  priority = "normal",
-  checklist = [],
-  notes = "",
-}) {
-  // using destructuring to not mess up the order
-  this.title = title;
-  this.description = description;
-  this.dueDate = dueDate;
-  this.priority = priority;
-  this.checklist = checklist;
-  this.notes = notes;
-  this.id = crypto.randomUUID();
-  this.completed = false;
-}
-
-function Project({ name }) {
-  this.name = name;
-  this.id = crypto.randomUUID();
-  this.todos = [];
-}
+import Todo from "./todo.js";
+import Project from "./project.js";
 
 const task = new Todo({
   title: "Buy milk",
@@ -34,4 +12,12 @@ const task = new Todo({
 const personal = new Project({ name: "Personal" });
 
 personal.todos.push(task);
+
 console.log(personal);
+
+
+
+const deleteById = (arr, id) => {
+  return arr.filter((obj) => obj.id !== id);
+}; // return a new array with deleted object
+
