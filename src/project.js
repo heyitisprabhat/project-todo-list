@@ -1,9 +1,19 @@
-function Project({ name }) {
-  this.name = name;
+function Project({
+  title,
+  description = "",
+  dueDate,
+  priority = "normal",
+  checklist = [],
+  notes = "",
+}) {
+  this.title = title;
+  this.description = description;
+  this.dueDate = dueDate;
+  this.priority = priority;
+  this.checklist = checklist;
+  this.notes = notes;
   this.id = crypto.randomUUID();
-  this.todos = [];
+  this.completed = false;
 }
-
-
 
 export default Project;
