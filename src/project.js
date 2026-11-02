@@ -1,19 +1,7 @@
-function Project({
-  title,
-  description = "",
-  dueDate,
-  priority = "normal",
-  checklist = [],
-  notes = "",
-}) {
-  this.title = title;
-  this.description = description;
-  this.dueDate = dueDate;
-  this.priority = priority;
-  this.checklist = checklist;
-  this.notes = notes;
+function Project({ name }) {
+  this.name = name;
   this.id = crypto.randomUUID();
-  this.completed = false;
+  this.todos = [];
 }
 
 export default Project;

@@ -4,54 +4,122 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo List</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
+    <div class="app">
       <aside class="sidebar">
         <h1>Todo List</h1>
-        <button>+ New Project</button>   
-        <nav class="general-nav">
-          <ul>
-            <li>All Tasks</li>
-          </ul>
-        </nav>
-
-        <nav class="project-nav">
-          <ul class="project-list">
-            <li>Personal</li>
-            <li>Travel</li>
+        <button>+ New Project</button>
+        <nav aria-label="Projects">
+          <ul id="project-list" class="project-list">
+            <li>
+              <button class="project-item">
+                <span>Personal</span><span class="count">3</span>
+              </button>
+            </li>
+            <li>
+              <button class="project-item active">
+                <span>University</span><span class="count">4</span>
+              </button>
+            </li>
+            <li>
+              <button class="project-item">
+                <span>Travel</span><span class="count">2</span>
+              </button>
+            </li>
           </ul>
         </nav>
       </aside>
 
-      <main class="main-content">
-        <h1>Personal</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero iste
-          eos hic, quam ipsa at iusto quia molestias perspiciatis inventore
-          dignissimos repellat consectetur nemo nobis.
-        </p>
-        <button class="due-date">28-10-2026</button>
-        <button class="priority">Important</button>
-        <ul class="check-list">
-          <li>
-            <input type="checkbox" id="task1" />
-            <label for="task1">Learn HTML</label>
+      <main class="todo-panel">
+        <header class="panel-header">
+          <div>
+            <h2 id="project-title">University</h2>
+            <p id="project-meta">4 tasks</p>
+          </div>
+          <button id="delete-project">Delete</button>
+          <button id="add-todo">Add</button>
+        </header>
+
+        <ul id="todo-list" class="todo-list">
+          <li class="todo-item selected">
+            <input type="checkbox" id="todo-t1" />
+            <label for="todo-t1" class="todo-title"
+              >Finish research assignment</label
+            >
+            <span class="pill priority-high">High</span>
+            <time class="due" datetime="2026-11-05">Nov 5, 2026</time>
           </li>
-          <li>
-            <input type="checkbox" id="task2" />
-            <label for="task2">Learn CSS</label>
+          <li class="todo-item">
+            <input type="checkbox" id="todo-t2" />
+            <label for="todo-t2" class="todo-title"
+              >Prepare for Economics viva</label
+            >
+            <span class="pill priority-normal">Normal</span>
+            <time class="due" datetime="2026-11-07">Nov 7, 2026</time>
           </li>
-          <li>
-            <input type="checkbox" id="task3" />
-            <label for="task3">Learn JavaScript</label>
+          <li class="todo-item">
+            <input type="checkbox" id="todo-t3" />
+            <label for="todo-t3" class="todo-title"
+              >Complete presentation slides</label
+            >
+            <span class="pill priority-low">Low</span>
+            <time class="due" datetime="2026-11-10">Nov 10, 2026</time>
           </li>
         </ul>
-        <div class="notes">
-          <h2>Notes</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse eius harum, aliquid dolor doloribus enim asperiores quis sunt, earum corporis aliquam est ratione dolore officia non, incidunt tempore illum quo.</p>
-        </div>
       </main>
+
+      <aside class="detail-panel">
+        <form id="todo-details-form" class="details">
+          <h3>Task details</h3>
+
+          <label class="field">
+            <span>Title</span>
+            <input
+              type="text"
+              name="title"
+              value="Finish research assignment"
+              required
+            />
+          </label>
+
+          <label class="field">
+            <span>Priority</span>
+            <select name="priority">
+              <option value="low">Low</option>
+              <option value="normal">Normal</option>
+              <option value="high" selected>High</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Due date</span>
+            <input type="date" name="dueDate" value="2026-11-05" />
+          </label>
+
+          <label class="field">
+            <span>Description</span>
+            <textarea name="description" rows="4">
+Write the complete assignment on the topic selected from the syllabus.</textarea
+            >
+          </label>
+
+          <label class="field">
+            <span>Notes</span>
+            <textarea name="notes" rows="3">
+Use textbook chapter 2 and class notes.</textarea
+            >
+          </label>
+
+          <div class="details-actions">
+            <button type="button" id="delete-todo-btn" class="btn btn-danger">
+              Delete task
+            </button>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+      </aside>
     </div>
   </body>
 </html>
