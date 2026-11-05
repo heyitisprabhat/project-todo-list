@@ -4,4 +4,10 @@ function Project({ name }) {
   this.todos = [];
 }
 
+const deleteProjectById = (projects, id) => {
+  return projects.filter((project) => project.id !== id);
+};
+
+export { deleteProjectById };
+
 export default Project;
